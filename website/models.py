@@ -16,3 +16,13 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(150))
     first_name = db.Column(db.String(150))
     notes = db.relationship('Note')
+
+class Tax(db.Model):
+    id = db.Column(db.Integer, primary_key= True)
+    tax_id = db.Column(db.String(150), unique=True)
+    salary = db.Column(db.Integer)
+    way_to_work = db.Column(db.Integer)
+    days_homeoffice = db.Column(db.Integer)
+    # days_office = db.Column(db.Integer)
+    # extra_costs = db.Column(db.Integer)
+    # user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
