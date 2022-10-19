@@ -7,6 +7,10 @@ import json
 
 views = Blueprint('views', __name__)
 
+@views.route('/landing-page', methods=['GET', 'POST'])
+def landingpage():
+    return render_template("landing-page.html")
+
 
 @views.route('/', methods=['GET', 'POST'])
 @login_required
@@ -33,18 +37,17 @@ def taxes():
         salary = request.form.get('bruttolohn')
         way_to_work = request.form.get('arbeitsweg')
         days_homeoffice = request.form.get('homeoffice')
+        user_id = current_user.id
 
-        new_tax = Tax(tax_id=tax_id, salary=salary, way_to_work=way_to_work, days_homeoffice=days_homeoffice)
+        new_tax = Tax(tax_id=tax_id, salary=salary, way_to_work=way_to_work, days_homeoffice=days_homeoffice, user_id=user_id)
         db.session.add(new_tax)
         db.session.commit()
         flash('Steuererklärung gespeichert')
 
         print(new_tax.tax_id)
-        print(new_tax.salary)
-        # return redirect(url_for('views.home'))
-
+        return redirect(url_for('views.taxes'))
+            
     return render_template("taxes.html", user=current_user)
-
 
 @views.route('/delete-note', methods=['POST'])
 def delete_note():

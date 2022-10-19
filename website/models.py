@@ -16,6 +16,7 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(150))
     first_name = db.Column(db.String(150))
     notes = db.relationship('Note')
+    tax_sheet = db.relationship('Tax')
 
 class Tax(db.Model):
     id = db.Column(db.Integer, primary_key= True)
@@ -25,4 +26,4 @@ class Tax(db.Model):
     days_homeoffice = db.Column(db.Integer)
     # days_office = db.Column(db.Integer)
     # extra_costs = db.Column(db.Integer)
-    # user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
