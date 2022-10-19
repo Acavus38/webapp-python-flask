@@ -1,0 +1,96 @@
+{% extends "base.html" %} {% block title %}Steuererklärung{% endblock %} {% block content
+    %}
+    <form method="POST">
+      <h3 align="center">Steuerjahr 2023</h3>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="name"
+          class="form-control"
+          id="name"
+          name="name"
+          placeholder="Name"
+        />
+      </div>
+      <div class="form-group">
+        <label for="nachname">Nachname</label>
+        <input
+          type="nachname"
+          class="form-control"
+          id="nachname"
+          name="nachname"
+          placeholder="Nachname"
+        />
+      </div>
+      <div class="form-group">
+        <label for="steuerid">Steueridentifikationsnummer</label>
+        <input
+          type="steuerid"
+          class="form-control"
+          id="steuerid"
+          name="steuerid"
+          placeholder="steuerid"
+        />
+      </div>
+      <div class="form-group">
+        <label for="bruttolohn">Bruttolohn</label>
+        <input
+          type="bruttolohn"
+          class="form-control"
+          id="bruttolohn"
+          name="bruttolohn"
+          placeholder="bruttolohn"
+        />
+      </div>
+      <div class="form-group">
+        <label for="arbeitsweg">Arbeitsweg</label>
+        <input
+          type="arbeitsweg"
+          class="form-control"
+          id="arbeitsweg"
+          name="arbeitsweg"
+          placeholder="arbeitsweg"
+        />
+      </div>
+      <div class="form-group">
+        <label for="homeoffice">Homeoffice-Tage</label>
+        <input
+          type="homeoffice"
+          class="form-control"
+          id="homeoffice"
+          name="homeoffice"
+          placeholder="homeoffice"
+        />
+      </div>
+      <!-- <div class="form-group">
+        <label for="office">Office-Tage</label>
+        <input
+          type="office"
+          class="form-control"
+          id="office"
+          name="office"
+          placeholder="office"
+        />
+      </div>
+      <div class="form-group">
+        <label for="kosten">Kosten</label>
+        <input
+          type="kosten"
+          class="form-control"
+          id="kosten"
+          name="kosten"
+          placeholder="kosten"
+        />
+      </div> -->
+      <div class="">
+        <label for="übersicht">Übersicht </label>
+        {% block body %}
+          <ul>
+            {{ abc }}
+          </ul>
+        {% endblock %}
+      </div>
+      <br />
+      <button type="submit" class="btn btn-primary">Steuerdaten speichern</button>
+    </form>
+    {% endblock %}
